@@ -151,6 +151,10 @@ command! -nargs=* GrepArgs
 command! -nargs=* GrepArgsAdd
 	\ call grep#runGrepSpecial('GrepArgsAdd', 'args', 'add', <f-args>)
 
+" Stop grep commands
+command! -nargs=0 GrepStop
+    \ call grep#stopGrep()
+
 " Add the Tools->Search Files menu
 if has('gui_running')
     anoremenu <silent> Tools.Search.Current\ Directory<Tab>:Grep

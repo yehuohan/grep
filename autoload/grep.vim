@@ -883,6 +883,14 @@ function! grep#runGrep(cmd_name, grep_cmd, action, ...)
     call s:runGrepCmd(cmd, pattern, a:action)
 endfunction
 
+" grep#stopGrep()
+" Stop grep process
+function! grep#stopGrep()
+    if s:grep_cmd_job isnot 0
+	call job_stop(s:grep_cmd_job)
+    endif
+endfunctio
+
 " restore 'cpo'
 let &cpo = s:cpo_save
 unlet s:cpo_save
